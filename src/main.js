@@ -1,6 +1,6 @@
 "use strict";
 
-const cardsCount = 3;
+const CARDS_COUNT = 3;
 
 const RenderPosition = {
   AFTERBEGIN: `afterbegin`,
@@ -389,22 +389,22 @@ const generateMoreButton = () => {
   `;
 };
 
-let mainContainer = document.querySelector(`.main`);
-let controlContainer = document.querySelector(`.control`);
+const mainContainer = document.querySelector(`.main`);
+const controlContainer = document.querySelector(`.control`);
 
 render(controlContainer, generateMenu(), RenderPosition.BEFOREEND);
 render(mainContainer, generateFilter(), RenderPosition.BEFOREEND);
 render(mainContainer, generateBoard(), RenderPosition.BEFOREEND);
 
-let boardContainer = document.querySelector(`.board`);
+const boardContainer = document.querySelector(`.board`);
 
 render(boardContainer, generateSort(), RenderPosition.BEFOREEND);
 render(boardContainer, generateTasksContainer(), RenderPosition.BEFOREEND);
-render(boardContainer, generateMore(), RenderPosition.BEFOREEND);
+render(boardContainer, generateMoreButton(), RenderPosition.BEFOREEND);
 
-let tasksContainer = document.querySelector(`.board__tasks`);
+const taskContainer = document.querySelector(`.board__tasks`);
 
-render(tasksContainer, generateForm(), RenderPosition.BEFOREEND);
-for (let i = 0; i < cardsCount; i++) {
-  render(tasksContainer, generateCard(), RenderPosition.BEFOREEND);
+render(taskContainer, generateForm(), RenderPosition.BEFOREEND);
+for (let i = 0; i < CARDS_COUNT; i++) {
+  render(taskContainer, generateCard(), RenderPosition.BEFOREEND);
 }
