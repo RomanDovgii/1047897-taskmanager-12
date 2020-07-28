@@ -400,7 +400,7 @@ const BOARD_CONTAINER = document.querySelector(`.board`);
 
 render(BOARD_CONTAINER, generateSort(), RenderPosition.BEFOREEND);
 render(BOARD_CONTAINER, generateTasksContainer(), RenderPosition.BEFOREEND);
-render(BOARD_CONTAINER, generateMoreButton(), RenderPosition.BEFOREEND);
+render(BOARD_CONTAINER, generateMore(), RenderPosition.BEFOREEND);
 
 const TASKS_CONTAINER = document.querySelector(`.board__tasks`);
 
