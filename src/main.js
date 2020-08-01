@@ -6,7 +6,8 @@ import {generateMenu} from "./view/menu.js";
 import {generateMoreButton} from "./view/more-button.js";
 import {generateSort} from "./view/sort.js";
 import {generateTasksContainer} from "./view/task-container.js";
-import {CARDS_COUNT, RenderPosition, render} from "./utils.js";
+import {CARDS_COUNT, RenderPosition} from "./const.js";
+import {render} from "./utils/index.js";
 
 const mainContainer = document.querySelector(`.main`);
 const controlContainer = document.querySelector(`.control`);
