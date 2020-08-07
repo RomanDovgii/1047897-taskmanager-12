@@ -33,7 +33,7 @@ const createTaskRepeatingTemplate = (repeating) => {
   ${isRepeating(repeating) ? `
     <fieldset class="card__repeat-days">
       <div class="card__repeat-days-inner">
-        ${Object.entries(repeating).map(([day, repeat]) =>
+        ${Object.entries(repeating).reduce((accumulator, [day, repeat]) => accumulator +
           `
           <input
             class="visually-hidden card__repeat-day-input"
@@ -47,7 +47,7 @@ const createTaskRepeatingTemplate = (repeating) => {
             >${day}</label
           >
           `
-        ).join(``)}
+        , ``)}
       </div>
     </fieldset>
   ` : ``}
@@ -56,7 +56,7 @@ const createTaskRepeatingTemplate = (repeating) => {
 
 const createTaskEditColorsTemplate = (currentColor) => {
   return `
-    ${colors.map((color) => `
+    ${colors.reduce((accumulator, color) => accumulator + `
     <input
       type="radio"
       id="color-${color}-4"
@@ -70,7 +70,7 @@ const createTaskEditColorsTemplate = (currentColor) => {
       class="card__color card__color--${color}"
       >${color}</label
     >
-    `).join(``)}
+    `, ``)}
   `;
 }
 
