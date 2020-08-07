@@ -4,7 +4,7 @@ const getCurrentDate = () => {
   currentDate = new Date(currentDate);
 
   return currentDate;
-}
+};
 
 export const render = (container, element, position) => {
   container.insertAdjacentHTML(position, element);
@@ -34,7 +34,7 @@ export const isToday = (dueDate) => {
   const currentDate = getCurrentDate();
 
   return currentDate.getTime() === dueDate.getTime();
-}
+};
 
 export const isRepeating = (repeating) => {
   return Object.values(repeating).some(Boolean);

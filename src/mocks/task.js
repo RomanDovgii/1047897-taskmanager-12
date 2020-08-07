@@ -18,7 +18,7 @@ const generateDate = () => {
   currentDate.setDate(currentDate.getDate() + daysGap);
 
   return new Date(currentDate);
-}
+};
 
 export const generateTask = () => {
   const descriptions = [`Изучить теорию`, `Сделать домашку`, `Пройти интенсив на соточку`];
@@ -38,7 +38,7 @@ export const generateTask = () => {
     color: colors[getRandomNumber(colors.length - 1)],
     isFavorite: Boolean(getRandomNumber()),
     isArchive: Boolean(getRandomNumber())
-  }
+  };
 };
 
 for (let i = 0; i < CARDS_COUNT; i++) {

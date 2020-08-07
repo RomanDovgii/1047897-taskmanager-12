@@ -21,7 +21,7 @@ const createTaskEditDateTemplate = (dueDate) => {
         />
       </label>
     </fieldset>` : ``}
-  `
+  `;
 };
 
 const createTaskRepeatingTemplate = (repeating) => {
@@ -47,12 +47,12 @@ const createTaskRepeatingTemplate = (repeating) => {
             >${day}</label
           >
           `
-        , ``)}
+  , ``)}
       </div>
     </fieldset>
   ` : ``}
   `;
-}
+};
 
 const createTaskEditColorsTemplate = (currentColor) => {
   return `
@@ -72,7 +72,7 @@ const createTaskEditColorsTemplate = (currentColor) => {
     >
     `, ``)}
   `;
-}
+};
 
 export const generateForm = (task = {}) => {
   const {

@@ -8,7 +8,7 @@ import {generateSort} from "./view/sort";
 import {generateTasksContainer} from "./view/task-container";
 import {TASK_PER_STEP, RenderPosition} from "./utils/const";
 import {render} from "./utils/main";
-import {preparedTasks, generateTask} from "./mocks/task";
+import {preparedTasks} from "./mocks/task";
 
 const mainContainer = document.querySelector(`.main`);
 const controlContainer = document.querySelector(`.control`);
@@ -41,7 +41,7 @@ if (preparedTasks.length > TASK_PER_STEP) {
     tasksBlock = preparedTasks.slice(renderedTasksCounter, renderedTasksCounter + TASK_PER_STEP).reduce((accumulator, task) => accumulator + generateCard(task), ``);
     render(taskContainer, tasksBlock, RenderPosition.BEFOREEND);
     renderedTasksCounter += TASK_PER_STEP;
-    if(renderedTasksCounter > preparedTasks.length) {
+    if (renderedTasksCounter > preparedTasks.length) {
       loadMoreButton.remove();
     }
   });
