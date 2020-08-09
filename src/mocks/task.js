@@ -1,17 +1,16 @@
 import {getRandomNumber} from "../utils/main";
-import {colors, CARDS_COUNT} from "../utils/const";
+import {COLORS, TASKS_COUNT, MAX_DAYS_GAP, DESCRIPTIONS} from "../utils/const";
 
-let tasks = [];
+const task = [];
 
 const generateDate = () => {
-  const maxDaysGap = 7;
-  const daysGap = getRandomNumber(-maxDaysGap, maxDaysGap);
-
-  const isDate = Boolean(getRandomNumber());
+  const isDate = Boolean(getRandomNumber(1, 0));
 
   if (!isDate) {
     return null;
   }
+
+  const daysGap = getRandomNumber(-MAX_DAYS_GAP, MAX_DAYS_GAP);
 
   const currentDate = new Date();
   currentDate.setHours(23, 59, 59, 999);
@@ -21,28 +20,40 @@ const generateDate = () => {
 };
 
 export const generateTask = () => {
-  const descriptions = [`Изучить теорию`, `Сделать домашку`, `Пройти интенсив на соточку`];
+  const description = DESCRIPTIONS[getRandomNumber(DESCRIPTIONS.length - 1, 0)];
+  const color = COLORS[getRandomNumber(COLORS.length - 1, 0)];
+  const dueDate = generateDate();
+  const repeating = dueDate !== null ? {
+    mo: false,
+    tu: false,
+    we: false,
+    th: false,
+    fr: false,
+    sa: false,
+    su: false
+  } : {
+    mo: Boolean(getRandomNumber(1, 0)),
+    tu: Boolean(getRandomNumber(1, 0)),
+    we: Boolean(getRandomNumber(1, 0)),
+    th: Boolean(getRandomNumber(1, 0)),
+    fr: Boolean(getRandomNumber(1, 0)),
+    sa: Boolean(getRandomNumber(1, 0)),
+    su: Boolean(getRandomNumber(1, 0))
+  };
+
 
   return {
-    description: descriptions[getRandomNumber(descriptions.length - 1)],
-    dueDate: generateDate(),
-    repeating: {
-      mo: Boolean(getRandomNumber()),
-      tu: Boolean(getRandomNumber()),
-      we: Boolean(getRandomNumber()),
-      th: Boolean(getRandomNumber()),
-      fr: Boolean(getRandomNumber()),
-      sa: Boolean(getRandomNumber()),
-      su: Boolean(getRandomNumber())
-    },
-    color: colors[getRandomNumber(colors.length - 1)],
-    isFavorite: Boolean(getRandomNumber()),
-    isArchive: Boolean(getRandomNumber())
+    description,
+    dueDate,
+    repeating,
+    color,
+    isFavorite: Boolean(getRandomNumber(1, 0)),
+    isArchive: Boolean(getRandomNumber(1, 0))
   };
 };
 
-for (let i = 0; i < CARDS_COUNT; i++) {
-  tasks.push(generateTask());
+for (let i = 0; i < TASKS_COUNT; i++) {
+  task.push(generateTask());
 }
 
-export const preparedTasks = tasks;
+export const preparedTasks = task;

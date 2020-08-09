@@ -13,7 +13,7 @@ const createFilterMarkup = (filter, isChecked) => {
       ${count === 0 ? `disabled` : ``}
     />
     <label for="filter__${title}" class="filter__label">
-    ${title.toUpperCase()} <span class="filter__${title}-count">${count}</span></label
+    ${title} <span class="filter__${title}-count">${count}</span></label
     >`;
 };
 

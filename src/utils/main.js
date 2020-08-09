@@ -1,18 +1,17 @@
 const getCurrentDate = () => {
-  let currentDate = new Date();
-  currentDate.setHours(23, 59, 59, 999);
-  currentDate = new Date(currentDate);
+  const CURRENT_DATE = new Date();
+  CURRENT_DATE.setHours(23, 59, 59, 999);
 
-  return currentDate;
+  return new Date(CURRENT_DATE);
 };
 
 export const render = (container, element, position) => {
   container.insertAdjacentHTML(position, element);
 };
 
-export const getRandomNumber = (min = 0, max = 1) => {
-  const bottom = Math.ceil(Math.min(min, max));
-  const top = Math.floor(Math.max(min, max));
+export const getRandomNumber = (firstNumber, secondNumber) => {
+  const bottom = Math.ceil(Math.min(firstNumber, secondNumber));
+  const top = Math.floor(Math.max(firstNumber, secondNumber));
   return Math.floor(bottom + Math.random() * (top - bottom + 1));
 };
 
@@ -21,9 +20,9 @@ export const isExpired = (dueDate) => {
     return false;
   }
 
-  let currentDate = getCurrentDate();
+  const CURRENT_DATE = getCurrentDate();
 
-  return currentDate.getTime() > dueDate.getTime();
+  return CURRENT_DATE.getTime() > dueDate.getTime();
 };
 
 export const isToday = (dueDate) => {
@@ -31,9 +30,9 @@ export const isToday = (dueDate) => {
     return false;
   }
 
-  const currentDate = getCurrentDate();
+  const CURRENT_DATE = getCurrentDate();
 
-  return currentDate.getTime() === dueDate.getTime();
+  return CURRENT_DATE.getTime() === dueDate.getTime();
 };
 
 export const isRepeating = (repeating) => {

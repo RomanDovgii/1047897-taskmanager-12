@@ -1,5 +1,5 @@
 import {isExpired, isRepeating, getFormatedDate} from "../utils/main";
-import {colors} from "../utils/const";
+import {COLORS} from "../utils/const";
 
 const createTaskEditDateTemplate = (dueDate) => {
   const date = dueDate !== null ? getFormatedDate(dueDate) : ``;
@@ -56,7 +56,7 @@ const createTaskRepeatingTemplate = (repeating) => {
 
 const createTaskEditColorsTemplate = (currentColor) => {
   return `
-    ${colors.reduce((accumulator, color) => accumulator + `
+    ${COLORS.reduce((accumulator, color) => accumulator + `
     <input
       type="radio"
       id="color-${color}-4"
