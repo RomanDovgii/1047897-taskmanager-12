@@ -6,31 +6,31 @@ import {generateMenu} from "./view/menu";
 import {generateMoreButton} from "./view/more-button";
 import {generateSort} from "./view/sort";
 import {generateTasksContainer} from "./view/task-container";
-import {TASKS_PER_STEP, RENDER_POSITION} from "./utils/const";
+import {TASKS_PER_STEP, RenderPosition} from "./utils/const";
 import {render} from "./utils/main";
 import {preparedTasks} from "./mocks/task";
 
 const mainContainer = document.querySelector(`.main`);
 const controlContainer = document.querySelector(`.control`);
 
-render(controlContainer, generateMenu(), RENDER_POSITION.BEFOREEND);
-render(mainContainer, generateFilter(), RENDER_POSITION.BEFOREEND);
-render(mainContainer, generateBoard(), RENDER_POSITION.BEFOREEND);
+render(controlContainer, generateMenu(), RenderPosition.BEFOREEND);
+render(mainContainer, generateFilter(), RenderPosition.BEFOREEND);
+render(mainContainer, generateBoard(), RenderPosition.BEFOREEND);
 
 const boardContainer = document.querySelector(`.board`);
 
-render(boardContainer, generateSort(), RENDER_POSITION.BEFOREEND);
-render(boardContainer, generateTasksContainer(), RENDER_POSITION.BEFOREEND);
+render(boardContainer, generateSort(), RenderPosition.BEFOREEND);
+render(boardContainer, generateTasksContainer(), RenderPosition.BEFOREEND);
 
 const taskContainer = document.querySelector(`.board__tasks`);
 
-render(taskContainer, generateForm(preparedTasks[0]), RENDER_POSITION.BEFOREEND);
+render(taskContainer, generateForm(preparedTasks[0]), RenderPosition.BEFOREEND);
 
 let tasksBlock = preparedTasks.slice(1, TASKS_PER_STEP).reduce((accumulator, task) => accumulator + generateCard(task), ``);
-render(taskContainer, tasksBlock, RENDER_POSITION.BEFOREEND);
+render(taskContainer, tasksBlock, RenderPosition.BEFOREEND);
 
 if (preparedTasks.length > TASKS_PER_STEP) {
-  render(boardContainer, generateMoreButton(), RENDER_POSITION.BEFOREEND);
+  render(boardContainer, generateMoreButton(), RenderPosition.BEFOREEND);
 
   let renderedTasksCounter = TASKS_PER_STEP;
 
@@ -39,7 +39,7 @@ if (preparedTasks.length > TASKS_PER_STEP) {
   loadMoreButton.addEventListener(`click`, (evt) => {
     evt.preventDefault();
     tasksBlock = preparedTasks.slice(renderedTasksCounter, renderedTasksCounter + TASKS_PER_STEP).reduce((accumulator, task) => accumulator + generateCard(task), ``);
-    render(taskContainer, tasksBlock, RENDER_POSITION.BEFOREEND);
+    render(taskContainer, tasksBlock, RenderPosition.BEFOREEND);
     renderedTasksCounter += TASKS_PER_STEP;
     if (renderedTasksCounter > preparedTasks.length) {
       loadMoreButton.remove();

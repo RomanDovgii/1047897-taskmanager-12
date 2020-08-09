@@ -1,7 +1,7 @@
 import {getRandomNumber} from "../utils/main";
 import {COLORS, TASKS_COUNT, MAX_DAYS_GAP, BOOLEAN_MAX, BOOLEAN_MIN, MIN_ARRAY_INDEX, DESCRIPTIONS} from "../utils/const";
 
-const task = [];
+const tasks = [];
 
 const generateDate = () => {
   const isDate = Boolean(getRandomNumber(BOOLEAN_MAX, BOOLEAN_MIN));
@@ -53,7 +53,7 @@ export const generateTask = () => {
 };
 
 for (let i = 0; i < TASKS_COUNT; i++) {
-  task.push(generateTask());
+  tasks.push(generateTask());
 }
 
-export const preparedTasks = task;
+export const preparedTasks = tasks;

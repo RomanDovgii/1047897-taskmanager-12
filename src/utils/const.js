@@ -8,7 +8,7 @@ export const MIN_ARRAY_INDEX = 0;
 export const COLORS = [`black`, `yellow`, `blue`, `green`, `pink`];
 export const DESCRIPTIONS = [`Изучить теорию`, `Сделать домашку`, `Пройти интенсив на соточку`];
 
-export const RENDER_POSITION = {
+export const RenderPosition = {
   AFTERBEGIN: `afterbegin`,
   BEFOREEND: `beforeend`,
 };
