@@ -1,10 +1,10 @@
 import {getRandomNumber} from "../utils/main";
-import {COLORS, TASKS_COUNT, MAX_DAYS_GAP, DESCRIPTIONS} from "../utils/const";
+import {COLORS, TASKS_COUNT, MAX_DAYS_GAP, BOOLEAN_MAX, BOOLEAN_MIN, MIN_ARRAY_INDEX, DESCRIPTIONS} from "../utils/const";
 
 const task = [];
 
 const generateDate = () => {
-  const isDate = Boolean(getRandomNumber(1, 0));
+  const isDate = Boolean(getRandomNumber(BOOLEAN_MAX, BOOLEAN_MIN));
 
   if (!isDate) {
     return null;
@@ -20,8 +20,8 @@ const generateDate = () => {
 };
 
 export const generateTask = () => {
-  const description = DESCRIPTIONS[getRandomNumber(DESCRIPTIONS.length - 1, 0)];
-  const color = COLORS[getRandomNumber(COLORS.length - 1, 0)];
+  const description = DESCRIPTIONS[getRandomNumber(DESCRIPTIONS.length - 1, MIN_ARRAY_INDEX)];
+  const color = COLORS[getRandomNumber(COLORS.length - 1, MIN_ARRAY_INDEX)];
   const dueDate = generateDate();
   const repeating = dueDate !== null ? {
     mo: false,
@@ -32,13 +32,13 @@ export const generateTask = () => {
     sa: false,
     su: false
   } : {
-    mo: Boolean(getRandomNumber(1, 0)),
-    tu: Boolean(getRandomNumber(1, 0)),
-    we: Boolean(getRandomNumber(1, 0)),
-    th: Boolean(getRandomNumber(1, 0)),
-    fr: Boolean(getRandomNumber(1, 0)),
-    sa: Boolean(getRandomNumber(1, 0)),
-    su: Boolean(getRandomNumber(1, 0))
+    mo: Boolean(getRandomNumber(BOOLEAN_MAX, BOOLEAN_MIN)),
+    tu: Boolean(getRandomNumber(BOOLEAN_MAX, BOOLEAN_MIN)),
+    we: Boolean(getRandomNumber(BOOLEAN_MAX, BOOLEAN_MIN)),
+    th: Boolean(getRandomNumber(BOOLEAN_MAX, BOOLEAN_MIN)),
+    fr: Boolean(getRandomNumber(BOOLEAN_MAX, BOOLEAN_MIN)),
+    sa: Boolean(getRandomNumber(BOOLEAN_MAX, BOOLEAN_MIN)),
+    su: Boolean(getRandomNumber(BOOLEAN_MAX, BOOLEAN_MIN))
   };
 
 
@@ -47,8 +47,8 @@ export const generateTask = () => {
     dueDate,
     repeating,
     color,
-    isFavorite: Boolean(getRandomNumber(1, 0)),
-    isArchive: Boolean(getRandomNumber(1, 0))
+    isFavorite: Boolean(getRandomNumber(BOOLEAN_MAX, BOOLEAN_MIN)),
+    isArchive: Boolean(getRandomNumber(BOOLEAN_MAX, BOOLEAN_MIN))
   };
 };
 
