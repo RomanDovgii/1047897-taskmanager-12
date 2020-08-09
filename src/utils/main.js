@@ -1,8 +1,8 @@
 const getCurrentDate = () => {
-  const CURRENT_DATE = new Date();
-  CURRENT_DATE.setHours(23, 59, 59, 999);
+  const currentDate = new Date();
+  currentDate.setHours(23, 59, 59, 999);
 
-  return new Date(CURRENT_DATE);
+  return new Date(currentDate);
 };
 
 export const render = (container, element, position) => {
@@ -20,9 +20,9 @@ export const isExpired = (dueDate) => {
     return false;
   }
 
-  const CURRENT_DATE = getCurrentDate();
+  const currentDate = getCurrentDate();
 
-  return CURRENT_DATE.getTime() > dueDate.getTime();
+  return currentDate.getTime() > dueDate.getTime();
 };
 
 export const isToday = (dueDate) => {
@@ -30,9 +30,9 @@ export const isToday = (dueDate) => {
     return false;
   }
 
-  const CURRENT_DATE = getCurrentDate();
+  const currentDate = getCurrentDate();
 
-  return CURRENT_DATE.getTime() === dueDate.getTime();
+  return currentDate.getTime() === dueDate.getTime();
 };
 
 export const isRepeating = (repeating) => {
